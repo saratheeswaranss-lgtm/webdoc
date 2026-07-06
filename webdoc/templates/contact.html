@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Contact — WebDoc{% endblock %}
+{% block bodyclass %}page-contact{% endblock %}
+
+{% block content %}
+
+<section class="contact-section">
+  <div class="contact-section__left reveal">
+    <p class="eyebrow">GET IN TOUCH</p>
+    <h1>Let's build<br>something worth<br>visiting.</h1>
+
+    <div class="contact-details">
+      <a href="tel:{{ contact.phone }}" class="contact-details__row">
+        <span class="contact-details__label">Phone</span>
+        <span class="contact-details__value">{{ 9345096091 }}</span>
+      </a>
+      <a href="mailto:{{ contact.email }}" class="contact-details__row">
+        <span class="contact-details__label">Email</span>
+        <span class="contact-details__value">{{ "saratheeswaranss@gmail.com" }}</span>
+      </a>
+      <a href="{{ contact.instagram_url }}" target="_blank" rel="noopener" class="contact-details__row">
+        <span class="contact-details__label">Instagram</span>
+        <span class="contact-details__value">{{ contact.instagram_handle }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-section__right reveal">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        <div class="form-flash form-flash--{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+{% endblock %}

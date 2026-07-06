@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Services — WebDoc{% endblock %}
+{% block bodyclass %}page-services{% endblock %}
+
+{% block content %}
+
+<section class="page-hero reveal">
+  <p class="eyebrow">WHAT WE DO</p>
+  <h1>Four services. One team.<br>Everything your business is online.</h1>
+  <p class="page-hero__sub">Tap a card for the full breakdown of what's included.</p>
+</section>
+
+<section class="services-grid">
+  {% for s in services %}
+  <article class="service-card reveal" data-service="{{ s.id }}" tabindex="0">
+    <div class="service-card__face">
+      <p class="service-card__tag">{{ s.tag }}</p>
+      <h3>{{ s.title }}</h3>
+      <p class="service-card__summary">{{ s.summary }}</p>
+      <span class="service-card__cue">+ View details</span>
+    </div>
+
+    <div class="service-card__popup">
+      <p class="service-card__tag">{{ s.tag }}</p>
+      <p class="service-card__detail">{{ s.detail }}</p>
+      <ul class="service-card__points">
+        {% for p in s.points %}
+        <li>{{ p }}</li>
+        {% endfor %}
+      </ul>
+      <a href="{{ url_for('contact') }}" class="service-card__link">Ask about this →</a>
+      <span class="service-card__close" aria-label="Close">×</span>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="cta-band reveal">
+  <h2>Not sure which one fits?</h2>
+  <a href="{{ url_for('contact') }}" class="btn btn--primary btn--lg">Tell us about your project →</a>
+</section>
+
+{% endblock %}

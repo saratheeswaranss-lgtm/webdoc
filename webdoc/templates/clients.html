@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Clients — WebDoc{% endblock %}
+{% block bodyclass %}page-clients{% endblock %}
+
+{% block content %}
+
+<section class="page-hero reveal">
+  <p class="eyebrow">SELECTED WORK</p>
+  <h1>Real clients.<br>Real websites shipped.</h1>
+</section>
+
+<section class="clients-grid">
+  {% for c in clients %}
+  <article class="client-card client-card--{{ c.side }} reveal" data-tilt>
+    <div class="client-card__mock" aria-hidden="true">
+      <div class="mock-browser">
+        <div class="mock-browser__bar">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mock-browser__body">
+          <div class="mock-browser__line mock-browser__line--title"></div>
+          <div class="mock-browser__line"></div>
+          <div class="mock-browser__line mock-browser__line--short"></div>
+          <div class="mock-browser__block"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="client-card__info">
+      <p class="client-card__category">{{ c.category }}</p>
+      <h2>{{ c.name }}</h2>
+      <p class="client-card__desc">{{ c.description }}</p>
+      <ul class="client-card__tags">
+        {% for tag in c.tags %}
+        <li>{{ tag }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="cta-band reveal">
+  <h2>Want to be the next one on this page?</h2>
+  <a href="{{ url_for('contact') }}" class="btn btn--primary btn--lg">Start your project →</a>
+</section>
+
+{% endblock %}

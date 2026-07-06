@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}WebDoc — Websites, Stores & Ads that perform{% endblock %}
+{% block bodyclass %}page-home{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="hero__glow hero__glow--one" aria-hidden="true"></div>
+  <div class="hero__glow hero__glow--two" aria-hidden="true"></div>
+
+  <p class="eyebrow reveal">WEB DEVELOPMENT &amp; DIGITAL ADVERTISING</p>
+  <h1 class="hero__title reveal">
+    We build the web presence<br>
+    your business <em>deserves.</em>
+  </h1>
+  <p class="hero__sub reveal">
+    Websites, online stores, and ad campaigns — designed, built, and run
+    by one team so nothing gets lost between "the idea" and "the result."
+  </p>
+
+  <div class="hero__actions reveal">
+    <a href="{{ url_for('contact') }}" class="btn btn--primary">Contact Us</a>
+    <a href="{{ url_for('services') }}" class="btn btn--ghost">See our Services</a>
+  </div>
+
+  <div class="hero__scroll-cue reveal" aria-hidden="true">
+    <span></span>
+    <p>Scroll</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about__text reveal">
+    <p class="eyebrow">ABOUT ME</p>
+    <h2>One person, four skills you'd normally hire four agencies for.</h2>
+    <p class="about__body">
+      WebDoc is built around a simple idea: your website, your store, and your ads should all
+      come from the same place — so the design, the message, and the strategy actually line up.
+      I work directly with each client, end to end, from the first wireframe to the ad campaign
+      that sends people to it.
+    </p>
+    <p class="about__body">
+      No account managers, no hand-offs between departments — just a direct line to the person
+      building your project.
+    </p>
+  </div>
+    <div class="stat-card">
+      <p class="stat-card__number">1:1</p>
+      <p class="stat-card__label">Direct client communication</p>
+   </div>
+    <div class="stat-card">
+      <p class="stat-card__number">100%</p>
+      <p class="stat-card__label">Custom-built, no templates</p>
+    </div>
+</section>
+
+<section class="cta-band reveal">
+  <h2>Have a project in mind?</h2>
+  <a href="{{ url_for('contact') }}" class="btn btn--primary btn--lg">Let's talk →</a>
+</section>
+
+{% endblock %}
